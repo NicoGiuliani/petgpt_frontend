@@ -1,9 +1,20 @@
-<input [(ngModel)]=searchTerm type="text" placeholder="What's the deal?">
-<button (click)="sendDataToBackend()">Press it</button>
+<div class="container my-4">
+  <div class="d-flex flex-row gap-3 my-4">
+    <div class="col col-8">
+      <input [(ngModel)]=searchTerm type="text" class="form-control flex-column" placeholder="What type of animal is your pet?">
+    </div>
+    <div class="col">
+      <button class="btn btn-primary flex-column w-100 align-items-center" (click)="getBasicCareInformation()">Get basic care information</button>
+    </div>
+  </div>
 
-<div *ngIf="isLoading; else notLoading">
-  Loading...
+  <div *ngIf="isLoading; else notLoading">
+    Loading...
+  </div>
+  <ng-template #notLoading>
+    <ul>
+      <li *ngFor="let bulletPoint of bulletPoints">{{bulletPoint}}</li>
+    </ul>
+  </ng-template>
+
 </div>
-<ng-template #notLoading>
-  {{searchResult}}
-</ng-template>
