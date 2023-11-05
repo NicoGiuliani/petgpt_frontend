@@ -1,0 +1,22 @@
+.response-area {
+  /* width: 300px; Adjust the width as needed */
+  height: 400px; /* Adjust the height as needed */
+  border: 1px solid #000;
+  overflow-y: scroll; /* Enable vertical scrolling */
+  padding: 10px;
+}
+
+/* Style individual chat messages */
+.message {
+  background-color: #c6f0f9;
+  padding: 5px 15px;
+  margin: 5px 0;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+/* Style user and bot messages differently if needed */
+.message:nth-child(even) {
+  margin-left: auto;
+  background-color: #f1ccf0;
+}

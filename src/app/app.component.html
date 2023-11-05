@@ -1,20 +1,28 @@
 <div class="container my-4">
-  <div class="d-flex flex-row gap-3 my-4">
-    <div class="col col-8">
-      <input [(ngModel)]=searchTerm type="text" class="form-control flex-column" placeholder="What type of animal is your pet?">
-    </div>
-    <div class="col">
-      <button class="btn btn-primary flex-column w-100 align-items-center" (click)="getBasicCareInformation()">Get basic care information</button>
+  <div class="row align-items-center justify-content-center">
+    <div class="col-lg-6 col-sm-12">
+      <h1>PetGPT</h1>
+      <div class="d-flex flex-column gap-3">
+        <div class="response-area border">
+          <div *ngFor="let message of messages" class="message">
+            <span *ngIf="isStringArray(message); else arr">
+              <ul>
+                <li *ngFor="let bulletPoint of message">{{bulletPoint}}</li>
+              </ul>
+            </span>
+            <ng-template #arr>
+              {{message}}
+            </ng-template>
+          </div>
+        </div>
+        <div class="d-flex row w-100 justify-content-between">
+          <div class="col-9">
+            <textarea [(ngModel)]=userInput class="w-100" name="userInput"></textarea>
+          </div>
+          <div class="col">
+            <button (click)="sendMessage()" class="btn btn-primary w-100">Send</button>
+          </div>
+        </div>
     </div>
   </div>
-
-  <div *ngIf="isLoading; else notLoading">
-    Loading...
-  </div>
-  <ng-template #notLoading>
-    <ul>
-      <li *ngFor="let bulletPoint of bulletPoints">{{bulletPoint}}</li>
-    </ul>
-  </ng-template>
-
 </div>
