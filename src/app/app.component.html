@@ -3,8 +3,8 @@
     <div class="col-lg-6 col-sm-12">
       <h1>PetGPT</h1>
       <div class="d-flex flex-column gap-3">
-        <div class="response-area border">
-          <div *ngFor="let message of messages" class="message">
+        <div class="response-area border" #chatMessages>
+          <div *ngFor="let message of messages" class="message my-3">
             <span *ngIf="isStringArray(message); else arr">
               <ul>
                 <li *ngFor="let bulletPoint of message">{{bulletPoint}}</li>
