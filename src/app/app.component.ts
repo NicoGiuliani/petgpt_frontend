@@ -70,12 +70,7 @@ export class AppComponent implements OnInit {
   sendMessage = () => {
     this.messages.push(this.userInput);
     this.scrollToBottom();
-    if (this.initialMessage) {
-      this.getBasicCareInformation();
-      this.initialMessage = false;
-    } else {
-      this.sendDataToBackend();
-    }
+    this.sendDataToBackend();
     this.userInput = '';
   }
 
